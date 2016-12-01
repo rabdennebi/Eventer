@@ -1,0 +1,15 @@
+<ion-modal-view>
+    <ion-header-bar>
+      <h1 class="title dark">Sum event</h1>
+      <div class="buttons">
+        <button class="button" ng-click="closeModalSum()">Close</button>
+      </div>
+    </ion-header-bar>
+    <ion-content class="padding">
+          <div class="total">{{res.Total}}</div>
+          <div class="total" ng-repeat="p in res.Participant">
+              <p class="Name">{{p.Name}}</p>
+              <p class="Prix">{{p.Prix}}</p>
+          </div>
+     </ion-content>
+  </ion-modal-view>

@@ -1,0 +1,44 @@
+<ion-view view-title="Eventer">
+
+  <div class="float-button voyage" style="background: #387ef5;" ng-click="openModal()">
+    <span class="height-fix">
+      <a class="content">
+        <i class="ion-plus"> </i>
+      </a>
+    </span>
+  </div>
+
+  <ion-content>
+    
+    <ion-refresher ng-if="Voyages.length > 0" pulling-icon="ion-ios-arrow-down" spinner="android" on-refresh="refresh()">
+    </ion-refresher>
+    <div ng-if="Voyages.length < 1" class="center add-voyage">
+      <p>
+        <img src="" width="200px" height="200px">
+      </p>
+      Add a new event
+    </div>
+    
+    <div style="margin-bottom:100px;">
+      <div on-hold="remove(voyage.id)" style="margin-bottom:2px;" ng-repeat="voyage in Voyages">
+        <span class="content-type-icon-left" ng-click="openAlgo()">
+              $
+        </span>
+        <a href="#/tab/voyages/{{voyage.id}}">
+          <div class="content-type" style="background: url('{{voyage.url}}') center center no-repeat no-repeat;">
+            
+            <span class="content-type-icon">
+              {{voyage.Name | limitTo:1}}
+            </span>
+            <div class="divv">
+              <span class="content-type-title">{{voyage.Name}}</span>
+              <span class="content-type-date">{{voyage.datedebut | date:"MM/dd/yyyy"}} - {{voyage.datefin | date:"MM/dd/yyyy"}}</span>
+            </div>
+          </div>
+        </a>
+      </div>      
+
+      
+    </div>
+  </ion-content>
+</ion-view>

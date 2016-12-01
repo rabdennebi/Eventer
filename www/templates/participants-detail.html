@@ -1,0 +1,36 @@
+<ion-view>
+  <ion-nav-title>{{user.Name}}</ion-nav-title>
+  
+  <ion-content>
+    <ion-refresher pulling-icon="ion-ios-arrow-down" spinner="android" on-refresh="refresh()">
+    </ion-refresher>
+    <div style="margin-top: 10px;">
+      <div style="background:url('{{user.url}}');background-size: 130px 130px;height: 130px;border-radius:50%;-webkit-border-radius:50%;margin: 0px 5px 5px 5px;float:left;width:130px;">
+      </div>
+      <div class="list card" style="box-shadow: none;">
+        <div class="item item-divider" style="background-color:#FFF;">
+            <h2>Budget <b>{{user.budget}}</b> €</h2>
+        </div>
+        <div class="item item-divider" style="background-color:#FFF;">
+            <h2>Name <b>{{user.Name}}</b></h2>
+        </div>
+        <div class="item item-divider" style="background-color:#FFF;">
+            <a href="#" ng-click="edit(user.id)" class="edit">Edit</a>
+        </div>
+      </div>
+    </div>
+
+    <div style="clear:both;" class="list card">
+      <div class="item item-divider">
+        <h2>Purchases</h2>
+      </div>
+        <a href="#" class="item item-icon-left" on-hold="remove(a.id)" ng-repeat="a in articles">
+          <i class="icon {{a.Categorie}}"></i>
+          <p>{{a.Name}}</p>
+          <p>{{a.Commentaire}}</p>
+          <span class="badge badge-assertive">{{a.Prix}} €</span>
+        </a>
+    </div>
+    
+  </ion-content>
+</ion-view>

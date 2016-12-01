@@ -1,0 +1,64 @@
+<ion-view>
+  <ion-nav-title>{{Voyage.Name}}</ion-nav-title>
+  
+  <div ng-if="participants.length > 0" class="float-button article" style="left:20px;" ng-click="newArticle()">
+    <span class="height-fix">
+      <a class="content">
+        <i class="ion-bag"> </i>
+      </a>
+    </span>
+  </div>
+
+  <div ng-if="participants.length > 0" class="float-button algo" style="left:50%;" ng-click="algo(Voyage.id)">
+    <span class="height-fix">
+      <a class="content">
+        <i class="ion-social-usd"> </i>
+      </a>
+    </span>
+  </div>
+  
+  <div ng-if="participants.length > 0"  class="float-button user" style="background: #27ae60;" ng-click="openModal()">
+    <span class="height-fix">
+      <a class="content">
+        <i class="ion-person-add"> </i>
+      </a>
+    </span>
+  </div>
+  
+  <ion-content>
+    <ion-refresher pulling-icon="ion-ios-arrow-down" spinner="android" on-refresh="refresh()">
+    </ion-refresher>
+    <section style="height: 50%;background: url('{{Voyage.url}}') center center no-repeat no-repeat;margin-bottom:-60px;">
+    </section>
+    
+    <section class="padding">
+      <div class="list card">
+        <div class="item item-divider" style="background-color: rgba(108,122,137,1);">
+          <h2 style="color:white;">Contributors</h2>
+        </div>
+          <a ng-if="participants.length == 0"   href="" ng-click="openModal()" class="item">
+              <p class="add-contributor"><b>Add a new contributor</b></p>
+          </a>
+          <a href="#/tab/participants/{{Voyage.id}}/{{p.id}}" on-hold="remove(p.id)" class="item item-avatar" ng-repeat="p in participants">
+            <img src="{{p.url}}">
+            {{p.Name}}
+            <p>Estimated budget  : <b>{{p.budget}}</b>€</p>
+            <p>Current total buy : <b>{{depense}}</b>€</p>
+          </a>
+      </div>
+      
+      <div ng-if="articles.length > 0" class="list"  style="margin-bottom:80px;">
+        <div class="item item-divider">
+            <h2><b>Purchases</b></h2>
+        </div>
+          <a class="item item-icon-left" ng-click="expand($event)" href="#" ng-repeat="a in articles">
+            <i class="icon {{a.Categorie}}"></i>
+            {{a.Name}}
+            <span class="badge badge-assertive">{{a.Prix}} €</span>
+            <span class="badge badge-assertive">{{a.Prix}} €</span>
+          </a>
+       </div>
+    </section>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,61 @@
+<ion-modal-view>
+    <ion-header-bar>
+    <h1 class="title dark">Purchase</h1>
+    <div class="buttons">
+      <button class="button" ng-click="closeModalA()">Close</button>
+    </div>
+    </ion-header-bar>
+     <ion-content class="padding">
+     <div class="list list-inset">
+          <label class="item item-input">
+          <input type="text" placeholder="Name" ng-model="article.Name">
+          </label>
+          <label class="item item-input">
+          <input type="text" placeholder="Prix" ng-model="article.Prix">
+          </label>
+          <label style="display:none;" class="item item-input">
+          <input type="text" placeholder="Commentaire" ng-model="article.Commentaire">
+          </label>
+     </div>
+     <div class="list list-inset">
+          <label class="item item-input item-select">
+          <div class="input-label">
+               Categorie
+          </div>
+          <select ng-model="article.Categorie">
+               <option value="ion-pizza"><i class="icon ion-pizza"></i> Food</option>
+               <option value="ion-beer"><i class="icon ion-beer"></i> Drink</option>
+               <option value="ion-home"><i class="icon ion-home"></i> Hotel</option>
+               <option value="ion-model-s"><i class="icon ion-model-s"></i> Car</option>
+               <option value="ion-speedometer"><i class="icon ion-speedometer"></i> Diesel</option>
+               <option value="ion-plane"><i class="icon ion-plane"></i> Flight</option>
+               <option value="ion-card"><i class="icon ion-card"></i> Other</option>
+          </select>
+          </label>
+          <label class="item item-input item-select">
+          <div class="input-label">
+               Contributor
+          </div>
+          <select ng-model="article.contributorId">
+               <option value="{{p.id}}" ng-repeat="p in participants">{{p.Name}}</option>
+          </select>
+          </label>
+     </div>
+     <div style="display:none;" class="list list-inset">
+          <label class="item item-toggle">
+               Public
+               <label class="toggle toggle-balanced">
+                    <input type="checkbox" ng-checked="true" ng-init="article.status = true" ng-model="article.status">
+                    <div class="track">
+                         <div class="handle"></div>
+                    </div>
+               </label>
+          </label>
+     </div>
+     <button class="button button-block button-positive" 
+          ng-disabled="article.contributorId && article.Prix"
+          ng-click="addArticle(article)">
+          Add articless
+     </button>
+     </ion-content>
+</ion-modal-view>

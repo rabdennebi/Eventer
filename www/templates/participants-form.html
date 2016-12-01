@@ -1,0 +1,26 @@
+<ion-modal-view>
+    <ion-header-bar>
+      <h1 class="title dark">New contributor</h1>
+      <div class="buttons">
+        <button class="button" ng-click="close()">Close</button>
+      </div>
+    </ion-header-bar>
+    <ion-content class="padding">
+          <div class="list list-inset">
+            <label class="item item-input">
+              <input type="text" placeholder="Name" ng-model="participant.Name">
+            </label>
+            <label class="item item-input">
+              <input type="text" placeholder="Budget" ng-model="participant.Budget">
+            </label>
+            <label class="item item-input">
+              <button class="button button-block button-dark" ng-click="ip()">
+               Image
+              </button>
+            </label>
+          </div>
+          <button class="button button-block button-positive" ng-click="addUser(participant)">
+               Ajouter voyage
+          </button>
+     </ion-content>
+  </ion-modal-view>

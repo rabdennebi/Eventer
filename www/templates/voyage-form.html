@@ -1,0 +1,78 @@
+<ion-modal-view>
+    <ion-header-bar >
+      <h1 class="title dark" ng-show="add">New event</h1>
+      <h1 class="title dark" ng-hide="add">Edit event</h1>
+      <div class="buttons">
+        <button class="button" ng-click="closeModal()">Close</button>
+      </div>
+    </ion-header-bar>
+    <ion-content class="padding">
+      <div ng-show="add">
+          <div class="list list-inset">
+            <label class="item item-input">
+              <input type="text" placeholder="Name" ng-model="voyage.Name">
+            </label>
+            <label class="item item-input">
+              <input type="text" placeholder="Estimation" ng-model="voyage.estimation">
+            </label>
+            <label class="item item-input">
+              <input type="text" placeholder="Description" ng-model="voyage.description">
+            </label>
+          </div>
+            <button class="button button-block button-dark" ng-click="ip()">
+               Image
+            </button>
+          <div class="list list-inset">
+            <label class="item item-input">
+              Start date
+            </label>
+            <label class="item item-input">
+              <input type="date" placeholder="Date de début" ng-model="voyage.datedebut">
+            </label>
+            <label class="item item-input">
+              End date
+            </label>
+            <label class="item item-input">
+              <input type="date" placeholder="Date de fin" ng-model="voyage.datefin">
+            </label>
+          </div>
+      </div>
+      <div ng-hide="add">
+          <div class="list list-inset">
+            <label class="item item-input">
+              <input type="text" placeholder="Name" ng-model="voyageEdit.Name">
+            </label>
+            <label class="item item-input">
+              <input type="text" placeholder="Estimation" ng-model="voyageEdit.estimation">
+            </label>
+            <label class="item item-input">
+              <input type="text" placeholder="Description" ng-model="voyageEdit.description">
+            </label>
+          </div>
+            <button class="button button-block button-positive" ng-click="ip()">
+               Image
+            </button>
+          <div class="list list-inset">
+            <label class="item item-input">
+              Start date
+            </label>
+            <label class="item item-input">
+              <input type="date" placeholder="Date de début" ng-model="datedebut">
+            </label>
+            <label class="item item-input">
+              End date
+            </label>
+            <label class="item item-input">
+              <input type="date" placeholder="Date de fin" ng-model="datefin">
+            </label>
+          </div>
+      </div>
+          <button ng-show="add" class="button button-block button-positive" ng-click="addVoyage(voyage)">
+               Add event
+          </button>
+          
+          <button ng-hide="add" class="button button-block button-positive" ng-click="editVoyage(voyageEdit, datedebut, datefin)">
+               Edit event
+          </button>
+     </ion-content>
+  </ion-modal-view>

@@ -1,0 +1,36 @@
+<ion-modal-view>
+    <ion-header-bar >
+      <h1 class="title dark">Results</h1>
+      <div class="buttons">
+        <button class="button" ng-click="closeAlgo()">Close</button>
+      </div>
+    </ion-header-bar>
+    <ion-content class="padding">
+      
+    	<div class="card" ng-repeat="p in algo.Participant">
+    			<div class="item item-divider">
+			    {{p.Name}}
+			  </div>
+		  <div class="item item-text-wrap">
+		    <div>
+    		<div ng-if="p.arg3 < 0" ng-repeat="k in p.ki">
+    			{{p.Name}} must receive <b>{{k.Prix}}€</b> from <b>{{k.Name}}</b>
+    		</div>
+    		<div ng-if="p.arg3 > 0" ng-repeat="k in p.ki">
+    			{{p.Name}} must pay <b>{{k.Prix}}€</b> to <b>{{k.Name}}</b>
+    		</div>
+    	</div>
+		  </div>
+		</div>
+
+    	
+
+    	<div class="card">
+		  <div class="item item-text-wrap" style="text-align:center;">
+	    	<h2>Total <strong>{{algo.Total}}</strong></h2>
+		  </div>
+		</div>
+
+    	
+     </ion-content>
+  </ion-modal-view>
